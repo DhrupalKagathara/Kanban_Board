@@ -28,6 +28,7 @@ const Column = ({
           : 'hover:border-gray-600'
         }`}
     >
+      {/* Column header */}
       <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-700">
         <div className="flex items-center gap-2">
           <div className={`p-1.5 rounded-lg bg-gradient-to-r ${column.color} shadow-lg`}>
@@ -55,6 +56,7 @@ const Column = ({
 
           const taskElements = [...e.currentTarget.querySelectorAll('[data-task-id]')];
 
+          // Default to bottom
           let closestIndex = taskElements.length;
 
           for (let i = 0; i < taskElements.length; i++) {
@@ -75,6 +77,7 @@ const Column = ({
           handleDrop(e, column.id, dragOverIndex ?? tasks.length);
         }}
       >
+        {/* Show highlight at index 0 (before first task) */}
         <HighlightLine index={0} />
 
         {tasks.map((task, index) => (
@@ -90,10 +93,12 @@ const Column = ({
               priorityColors={priorityColors}
             />
 
+            {/* Show highlight after this task */}
             <HighlightLine index={index + 1} />
           </React.Fragment>
         ))}
 
+        {/* Empty column message */}
         {tasks.length === 0 && (
           <div className="min-h-[120px] rounded-lg border-2 border-dashed border-gray-600 hover:border-gray-500 transition-all duration-300 flex flex-col items-center justify-center text-gray-500">
             <Icon className="w-8 h-8 mx-auto mb-2 opacity-50" />

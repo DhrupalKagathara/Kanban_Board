@@ -173,6 +173,7 @@ const KanbanBoard = () => {
     return (
         <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6">
             <div className="max-w-7xl mx-auto">
+                {/* Header */}
                 <div className="mb-8">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         <div>
@@ -182,6 +183,7 @@ const KanbanBoard = () => {
                             </p>
                         </div>
 
+                        {/* Stats */}
                         <div className="flex flex-wrap gap-4">
                             <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg px-4 py-2 border border-gray-700">
                                 <div className="text-2xl font-bold text-white">{stats.totalTasks}</div>
@@ -198,7 +200,9 @@ const KanbanBoard = () => {
                         </div>
                     </div>
 
+                    {/* Controls */}
                     <div className="flex flex-col sm:flex-row gap-4 mt-6">
+                        {/* Search */}
                         <div className="relative flex-1 max-w-md">
                             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                             <input
@@ -210,6 +214,7 @@ const KanbanBoard = () => {
                             />
                         </div>
 
+                        {/* Priority Filter */}
                         <div className="relative">
                             <Filter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                             <select
@@ -224,6 +229,7 @@ const KanbanBoard = () => {
                             </select>
                         </div>
 
+                        {/* Clear All */}
                         <button
                             onClick={clearAllTasks}
                             className="px-4 py-2 bg-red-600/20 text-red-400 border border-red-500/30 rounded-lg hover:bg-red-600/30 transition-all duration-200"
@@ -233,6 +239,7 @@ const KanbanBoard = () => {
                     </div>
                 </div>
 
+                {/* Kanban Columns */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {columns.map((column) => (
                         <Column
@@ -251,6 +258,7 @@ const KanbanBoard = () => {
                     ))}
                 </div>
 
+                {/* Footer */}
                 <div className="mt-8 text-center text-gray-500 text-sm">
                     <p>
                         Drag and drop tasks between columns to update their status.
@@ -259,6 +267,7 @@ const KanbanBoard = () => {
                 </div>
             </div>
 
+            {/* Add Task Modal */}
             {isModalOpen && (
                 <AddTaskModal
                     closeModal={closeModal}
